@@ -1,0 +1,23 @@
+package edu.uniandes.dynamiccomparator.Controllers;
+
+import java.util.concurrent.atomic.AtomicLong;
+
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import edu.uniandes.dynamiccomparator.Models.CompareVersionInput;
+import edu.uniandes.dynamiccomparator.Models.Greeting;
+
+@RestController
+public class DynamicComparatorController {
+	private static final String template = "Hello, %s!";
+	private final AtomicLong counter = new AtomicLong();
+
+	@RequestMapping(method = RequestMethod.POST, value = "/compare", produces = { "application/JSON" }, consumes = {"application/JSON" })
+	public Greeting greeting(@RequestBody CompareVersionInput input) {
+		return input;
+	}
+}

@@ -1,0 +1,192 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>edu.uniandes</groupId>
+	<artifactId>dynamiccomparator</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>dynamiccomparator</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<tycho.version>0.22.0</tycho.version>
+		<luna-repo.url>http://download.eclipse.org/releases/luna</luna-repo.url>
+		<epsilon-repo.url>http://archive.eclipse.org/epsilon/1.2/updates/</epsilon-repo.url>
+	</properties>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.5.RELEASE</version>
+	</parent>
+
+	<repositories>
+		<repository>
+			<id>project-repo</id>
+			<url>file://${project.basedir}/src/main/resources/repo</url>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.9.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google</groupId>
+			<artifactId>guava</artifactId>
+			<version>15.0.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/com.google.guava_15.0.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>common</artifactId>
+			<version>2.11.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.eclipse.emf.common_2.11.1.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>ecore.xmi</artifactId>
+			<version>2.11.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.eclipse.emf.ecore.xmi_2.11.1.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>ecore</artifactId>
+			<version>2.11.2</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.eclipse.emf.ecore_2.11.2.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.ocl</groupId>
+			<artifactId>org.eclipse.ocl</artifactId>
+			<version>3.5.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.eclipse.ocl_3.5.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.ocl</groupId>
+			<artifactId>org.eclipse.ocl.ecore</artifactId>
+			<version>3.5.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.eclipse.ocl.ecore_3.5.0.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.15</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.apache.log4j_1.2.15.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>compare</artifactId>
+			<version>3.2.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.eclipse.emf.compare_3.2.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf.compare</groupId>
+			<artifactId>diagram</artifactId>
+			<version>2.3.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.eclipse.emf.compare.diagram_2.3.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf.compare</groupId>
+			<artifactId>doc</artifactId>
+			<version>3.2.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.eclipse.emf.compare.doc_3.2.1.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf.compare</groupId>
+			<artifactId>edit</artifactId>
+			<version>4.1.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.eclipse.emf.compare.edit_4.1.0.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf.compare</groupId>
+			<artifactId>ide</artifactId>
+			<version>3.2.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.eclipse.emf.compare.ide_3.2.1.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf.compare.ide</groupId>
+			<artifactId>ui</artifactId>
+			<version>4.1.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.eclipse.emf.compare.ide.ui_4.1.1.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf.compare</groupId>
+			<artifactId>rpc</artifactId>
+			<version>2.3.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.eclipse.emf.compare.rcp_2.3.1.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf.compare.rpc</groupId>
+			<artifactId>ui</artifactId>
+			<version>4.1.1</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.eclipse.emf.compare.rcp.ui_4.1.1.jar</systemPath>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.emf.compare</groupId>
+			<artifactId>uml</artifactId>
+			<version>2.3.0</version>
+			<scope>system</scope>
+			<systemPath>${project.basedir}/lib/org.eclipse.emf.compare.uml2_2.3.0.jar</systemPath>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

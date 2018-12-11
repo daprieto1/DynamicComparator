@@ -1,0 +1,13 @@
+package edu.uniandes.dynamiccomparator.Models;
+
+public class CompareVersionInput {
+	
+	private String minorVersionNumber;
+	private String mayorVersionNumber;
+	private String inputType;
+	private String minorVersionModel;
+	private String mayorVersionModel;
+	private String outputType;
+	private String outputDiffModel;
+
+}

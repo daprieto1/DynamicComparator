@@ -1,0 +1,27 @@
+package edu.uniandes.dynamiccomparator;
+
+import edu.uniandes.dynamiccomparator.Models.CompareVersionInput;
+import edu.uniandes.dynamiccomparator.Models.IdentifyOutput;
+import edu.uniandes.dynamiccomparator.Tools.Tools;
+
+public class DynamicComparator {
+
+	public static void execute(CompareVersionInput input) {
+		try {
+			//register Metamodels
+			Tools.registerDiffMetamodel();						
+			
+			//Call static comparation
+			IdentifyOutput output = Tools.callStaticComparation(input);
+			
+			//Save models
+			Tools.saveModel(output.getDiffModel(), "diffModel");
+			Tools.saveModel(input.getMinorVersionModel(), "minorModel");
+			Tools.saveModel(input.getMinorVersionModel(), "mayorModel");
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+}

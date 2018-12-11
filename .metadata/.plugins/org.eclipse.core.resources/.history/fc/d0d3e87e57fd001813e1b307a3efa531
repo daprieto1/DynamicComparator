@@ -1,0 +1,5 @@
+package edu.uniandes.dynamiccomparator.Models;
+
+public class IdentifyOutput {
+
+}

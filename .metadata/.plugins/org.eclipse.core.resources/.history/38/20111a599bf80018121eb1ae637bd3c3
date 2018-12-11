@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>edu.uniandes</groupId>
+	<artifactId>dynamiccomparator</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>dynamiccomparator</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>ecore</artifactId>
+			<version>2.2.3</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.ecore.xmi</artifactId>
+			<version>2.15.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>edu.uniandes</groupId>
+			<artifactId>diff</artifactId>
+			<version>1.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.eclipse.emf</groupId>
+			<artifactId>org.eclipse.emf.common</artifactId>
+			<version>2.15.0</version>
+		</dependency>
+
+	</dependencies>
+
+	<pluginRepositories>
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-install-plugin</artifactId>
+			<version>2.5.2</version>
+			<executions>
+				<execution>
+					<id>install-external</id>
+					<phase>clean</phase>
+					<configuration>
+						<file>${pom.basedir}/src/main/resources/lib/openapi-1.0.0.jar</file>
+						<repositoryLayout>default</repositoryLayout>
+						<groupId>static-import</groupId>
+						<artifactId>openapi</artifactId>
+						<version>1.0.0</version>
+						<packaging>jar</packaging>
+						<generatePom>true</generatePom>
+					</configuration>
+					<goals>
+						<goal>install-file</goal>
+					</goals>
+				</execution>
+			</executions>
+		</plugin>s
+	</pluginRepositories>
+
+</project>

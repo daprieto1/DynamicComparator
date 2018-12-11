@@ -1,0 +1,10 @@
+package edu.uniandes.dynamiccomparator;
+
+import edu.uniandes.dynamiccomparator.Tools.Tools;
+
+public class DynamicComparator {
+
+	public static void execute() {
+
+	}
+}

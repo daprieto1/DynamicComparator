@@ -1,0 +1,103 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>edu.uniandes</groupId>
+	<artifactId>dynamiccomparator</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>dynamiccomparator</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<tycho.version>0.22.0</tycho.version>
+		<luna-repo.url>http://download.eclipse.org/releases/luna</luna-repo.url>
+		<epsilon-repo.url>http://archive.eclipse.org/epsilon/1.2/updates/</epsilon-repo.url>
+	</properties>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.5.RELEASE</version>
+	</parent>
+
+	<repositories>
+		<repository>
+			<id>emf</id>
+			<name>EMF Comparer</name>
+			<url>https://repo.eclipse.org/content/repositories/emfcompare-snapshots</url>
+		</repository>
+		<repository>
+			<id>emfmaven</id>
+			<name>EMF Comparer Maven</name>
+			<url>http://maven.thingml.org/thirdparty</url>
+		</repository>
+		<repository>
+			<id>emfmaven2</id>
+			<name>EMF Comparer Maven2</name>
+			<url>http://www.jabylon.org/maven/</url>
+		</repository>
+		<repository>
+			<id>emfreleases</id>
+			<name>EMF Comparer Releases</name>
+			<url>https://repo.eclipse.org/content/groups/releases</url>
+		</repository>
+		<repository>
+			<id>public</id>
+			<name>Archiva Managed Public Repository</name>
+			<url>http://archiva.disim.univaq.it/repository/public/</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>2.9.7</version>
+		</dependency>
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.jayway.jsonpath</groupId>
+			<artifactId>json-path</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

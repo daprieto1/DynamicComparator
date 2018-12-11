@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="ASCII"?>
+<Diff:Diff xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xsi:schemaLocation="http://www.uniandes.edu.co/diff ../Diff.ecore" xmlns:Diff="http://www.uniandes.edu.co/diff" newVersion="1.0" oldVersion="1.0">
+  <change xsi:type="Diff:RenameParameter" changeElement="MethodParameter">
+    <new EObject="validationAPIv2.xmi#//@paramters.4" value="name"/>
+    <old EObject="validationAPIv1.xmi#//@paramters.4" value="username"/>
+  </change>
+  <change xsi:type="Diff:RenameParameter" changeElement="MethodParameter">
+    <new EObject="validationAPIv2.xmi#//@paramters.4" value="name"/>
+    <old EObject="validationAPIv1.xmi#//@paramters.4" value="username"/>
+  </change>
+  <change xsi:type="Diff:RemoveStatusCode" changeElement="StatusCode">
+    <old EObject="validationAPIv1.xmi#//@responses.2" value="201" path="/temperature"/>
+  </change>
+  <change xsi:type="Diff:RemoveStatusCode" changeElement="StatusCode">
+    <old EObject="validationAPIv1.xmi#//@responses.3" value="500" path="/temperature"/>
+  </change>
+  <change xsi:type="Diff:RemoveStatusCode" changeElement="StatusCode">
+    <old EObject="validationAPIv1.xmi#//@responses.4" value="201" path="/temperature"/>
+  </change>
+  <change xsi:type="Diff:RemoveStatusCode" changeElement="StatusCode">
+    <old EObject="validationAPIv1.xmi#//@responses.5" value="500" path="/temperature"/>
+  </change>
+  <change xsi:type="Diff:AddStatusCode" changeElement="StatusCode">
+    <new EObject="validationAPIv2.xmi#//@responses.4" value="201" path="/temperature"/>
+  </change>
+  <change xsi:type="Diff:AddStatusCode" changeElement="StatusCode">
+    <new EObject="validationAPIv2.xmi#//@responses.5" value="500" path="/temperature"/>
+  </change>
+  <change xsi:type="Diff:AddStatusCode" changeElement="StatusCode">
+    <new EObject="validationAPIv2.xmi#//@responses.2" value="201" path="/temperature"/>
+  </change>
+  <change xsi:type="Diff:AddStatusCode" changeElement="StatusCode">
+    <new EObject="validationAPIv2.xmi#//@responses.3" value="500" path="/temperature"/>
+  </change>
+</Diff:Diff>

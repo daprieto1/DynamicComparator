@@ -1,0 +1,16 @@
+package edu.uniandes.dynamiccomparator;
+
+import org.eclipse.emf.ecore.resource.Resource;
+
+/**
+ * Hello world!
+ *
+ */
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+        Resource.Factory.Registry reg = Resource.Factory.Registry.INSTANCE;
+    }
+}

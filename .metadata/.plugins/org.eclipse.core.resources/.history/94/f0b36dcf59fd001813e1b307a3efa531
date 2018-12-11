@@ -1,0 +1,96 @@
+package edu.uniandes.dynamiccomparator.Tools;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.eclipse.emf.ecore.EPackage;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import Diff.DiffPackage;
+import edu.uniandes.dynamiccomparator.Models.CompareVersionInput;
+import edu.uniandes.dynamiccomparator.Models.IdentifyOutput;
+
+public class Tools {
+
+	public static DiffPackage registerDiffMetamodel() {
+		DiffPackage diffPackage = DiffPackage.eINSTANCE;
+		EPackage.Registry.INSTANCE.put(diffPackage.getNsURI(), diffPackage);
+
+		return diffPackage;
+	}
+
+	/*
+	 * public static OpenAPIPackage registerOpenAPIMetamodel() { OpenAPIPackage
+	 * openAPIPackage = OpenAPIPackage.eINSTANCE;
+	 * EPackage.Registry.INSTANCE.put(openAPIPackage.getNsURI(), openAPIPackage);
+	 * 
+	 * return openAPIPackage; }
+	 */
+
+	public static IdentifyOutput callStaticComparation(CompareVersionInput input) throws IOException {
+
+		ObjectMapper mapper = new ObjectMapper();
+		URL url = new URL("http://ec2-54-188-195-2.us-west-2.compute.amazonaws.com:8080/comparer/api/diff/compare");
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+		conn.setDoOutput(true);
+		conn.setRequestMethod("POST");
+		conn.setRequestProperty("Content-Type", "application/json");
+
+		OutputStream os = conn.getOutputStream();
+		os.write(input.getInputForStaticComparator().getBytes());
+		os.flush();
+
+		if (conn.getResponseCode() != 200) {
+			throw new RuntimeException("Failed : HTTP error code : " + conn.getResponseCode());
+		}
+
+		BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+
+		String output;		
+		
+		while ((output = br.readLine()) != null) {
+			System.out.println(output);
+		}
+
+		conn.disconnect();
+		return mapper.readValue(output, IdentifyOutput.class);		
+
+	}
+	
+	public static void saveModel(CompareVersionInput compareVersionInput){
+		ModelPathOutput output = new ModelPathOutput();
+		try{
+			if (compareVersionInput.getInputTypeE() == ModelInputType.BASE64){
+				output.setPath(getMinorPathFromBase64(compareVersionInput));
+				output.setSuccess(true);
+			}
+			else if (compareVersionInput.getInputTypeE() == ModelInputType.FILE_PATH){
+				output.setPath(getMinorPathFromFilePath(compareVersionInput));
+				output.setSuccess(true);
+			}
+			else{				
+				output.setError("Invalid model input type");
+				output.setSuccess(false);					
+			}
+		}catch(Exception ex){
+			output.setSuccess(false);
+			output.setError(ex.getMessage());
+		}
+		
+		return output;
+	}
+	
+	private static String getPathFromBase64(String model) throws IOException {				
+		byte[] decodedMinorModel = Base64.getDecoder().decode(model.getBytes(StandardCharsets.UTF_8));
+		Path destinationFileMinorModel = Files.createTempFile("minorModel", ".xmi");
+		Files.write(destinationFileMinorModel, decodedMinorModel);		
+		
+		return destinationFileMinorModel.toAbsolutePath().toString();		
+	}
+}

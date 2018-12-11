@@ -1,0 +1,18 @@
+package edu.uniandes.dynamiccomparator;
+
+import edu.uniandes.dynamiccomparator.Models.CompareVersionInput;
+import edu.uniandes.dynamiccomparator.Models.IdentifyOutput;
+import edu.uniandes.dynamiccomparator.Tools.Tools;
+
+public class DynamicComparator {
+
+	public static void execute(CompareVersionInput input) {
+		try {
+			Tools.registerDiffMetamodel();
+			
+			IdentifyOutput output = Tools.callStaticComparation(input);
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	}
+}

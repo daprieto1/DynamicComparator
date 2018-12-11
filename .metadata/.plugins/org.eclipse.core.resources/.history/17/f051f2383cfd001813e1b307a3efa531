@@ -1,0 +1,13 @@
+package edu.uniandes.dynamiccomparator;
+
+import edu.uniandes.dynamiccomparator.Models.ModelInputType;
+import edu.uniandes.dynamiccomparator.Tools.Tools;
+
+public class DynamicComparator {
+
+	public static void execute(ModelInputType input) {
+		Tools.registerDiffMetamodel();
+		
+		
+	}
+}
